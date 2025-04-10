@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generador de Número Único</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    #resultado {
+      margin-top: 30px;
+      font-size: 24px;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Solicita tu número único</h1>
+  <p>Ingresa tu nombre:</p>
+
+  <input type="text" id="nombreUsuario" placeholder="Tu nombre aquí">
+  <br>
+  <button onclick="generarNumero()">Generar Número</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function generarNumero() {
+      const nombre = document.getElementById('nombreUsuario').value.trim();
+      if (!nombre) {
+        alert('Por favor ingresa tu nombre.');
+        return;
+      }
+
+      fetch('https://api.countapi.xyz/hit/miappusuarios2025/numeros')
+        .then(response => response.json())
+        .then(data => {
+          const numero = data.value;
+          document.get
